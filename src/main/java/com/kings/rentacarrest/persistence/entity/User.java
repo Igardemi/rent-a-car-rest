@@ -15,7 +15,6 @@ public class User {
     private String name;
     private String surname;
     private Date bornDate;
-    private String transmission;
     private Boolean admin;
     private String nif;
     private Date dateLicenseValid;
