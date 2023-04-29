@@ -16,7 +16,7 @@ public class Vehicle {
     private String transmission;
     private String image;
     private Integer power;
-    private EnumType type;
-    private Double princeDay;
+    private String type;
+    private Float priceDay;
 
 }
