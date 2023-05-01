@@ -14,32 +14,32 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/vehicle")
 public class VehicleController {
-    private final ImplVehicleService implVehicleService;
+    private final ImplVehicleService VehicleService;
 
     @GetMapping
     public List<Vehicle> findAllVehicle() {
-        return this.implVehicleService.findAllVehicle();
+        return this.VehicleService.findAllVehicle();
     }
 
     @GetMapping("/{id}")
     public Vehicle findTaskById(@PathVariable("id") Long id) throws DefaultException {
-        return this.implVehicleService.findVehicleById(id);
+        return this.VehicleService.findVehicleById(id);
     }
 
     @PostMapping("")
     public void updateTask(@RequestBody Vehicle vehicle) throws DefaultException {
-        this.implVehicleService.updateVehicle(vehicle);
+        this.VehicleService.updateVehicle(vehicle);
     }
 
     @DeleteMapping("/{id}")
     public boolean deleteById(@PathVariable("id") Long id) throws DefaultException{
-        return this.implVehicleService.deleteVehicle(id);
+        return this.VehicleService.deleteVehicle(id);
     }
     @GetMapping("/available")
     public List<Vehicle> getAvailableVehicles(
             @RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
             @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
-        return this.implVehicleService.getAvailableVehicles(startDate, endDate);
+        return this.VehicleService.getAvailableVehicles(startDate, endDate);
     }
 
 }

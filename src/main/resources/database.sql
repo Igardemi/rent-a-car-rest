@@ -8,8 +8,9 @@ VALUES (NULL, '3243HYL', 'https://www.ford.es/content/dam/guxeu/global-shared/ve
 (NULL, '4894KNG', 'https://pepecarrenting.pepecar.com/sites/pepecarrenting.com/files/styles/image_w800/public/models/opel_20astraeditionhb6fb_lowaggressive_blanco-alpino.png?itok=CrtgnSW9', 'Opel', 'Corsa', '70', '8', 'Manual', 'Gasolina'),
 (NULL, '9833SVF', 'https://th.bing.com/th/id/OIP.rqQn303eA1617INQZYP1MAHaEu?pid=ImgDet&rs=1', 'Seat', 'Leon', '105', '11', 'Manual', 'Diesel');
 
+INSERT INTO `user` (`id`, `admin`, `born_date`, `date_license_valid`, `email`, `name`, `nif`, `password`, `surname`) VALUES (NULL, b'1', '1987-09-07', '2035-05-02', 'ivan', 'ivan', '3424234324', '$2a$10$5wjA/fvxj/rHnaTxmjcJzOdmJZEQbGSq7SyqizF1LkyVNvK3gcwvG', 'garcia');
 
-INSERT INTO `user` (`id`, `admin`, `born_date`, `date_license_valid`, `name`, `nif`, `surname`, `password`) VALUES
-(NULL, true, '1987-09-07 16:27:50', '2035-09-07 00:00:00', 'Ivan', '24673833R', 'Garcia', 'password');
+INSERT INTO `booking` (`id`, `finish_date`, `price`, `start_date`, `user`, `vehicle`) VALUES (NULL, '2023-04-28', '30', '2023-04-30', '1', '1');
 
-INSERT INTO `booking` (`id`, `finish_date`, `price`, `start_date`, `user`, `vehicle`) VALUES (NULL, '2023-04-28 16:31:56', '30', '2023-04-30 16:31:56', '1', '1');
+ivan = $2a$10$XOrN1kcKut0.Ki0yVTU3K.QmvU.uzxSrPNFe9klCevBG0GXiETrjm
+esther = $2a$10$vwSgVtr0ItdTSr9qvX0opeFyyx9XrvHPPGtDBKGVsiNB1LKtZes6e

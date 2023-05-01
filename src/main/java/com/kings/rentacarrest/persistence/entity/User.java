@@ -14,9 +14,12 @@ public class User {
     private Long id;
     private String name;
     private String surname;
+    @Temporal(TemporalType.DATE)
     private Date bornDate;
     private Boolean admin;
+    private String email;
     private String nif;
     private String password;
+    @Temporal(TemporalType.DATE)
     private Date dateLicenseValid;
 }

@@ -1,5 +1,6 @@
 package com.kings.rentacarrest.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,7 +17,9 @@ public class Booking {
     private User user;
     @JoinColumn(name="vehicle") @OneToOne
     private Vehicle vehicle;
+    @Temporal(TemporalType.DATE)
     private Date startDate;
+    @Temporal(TemporalType.DATE)
     private Date finishDate;
     private Double price;
 
