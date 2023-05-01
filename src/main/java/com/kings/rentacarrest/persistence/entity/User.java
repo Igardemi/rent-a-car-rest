@@ -17,5 +17,6 @@ public class User {
     private Date bornDate;
     private Boolean admin;
     private String nif;
+    private String password;
     private Date dateLicenseValid;
 }

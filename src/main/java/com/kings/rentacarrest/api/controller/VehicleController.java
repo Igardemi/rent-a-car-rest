@@ -4,8 +4,10 @@ import com.kings.rentacarrest.core.exception.DefaultException;
 import com.kings.rentacarrest.core.services.ImplVehicleService;
 import com.kings.rentacarrest.persistence.entity.Vehicle;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -33,9 +35,11 @@ public class VehicleController {
     public boolean deleteById(@PathVariable("id") Long id) throws DefaultException{
         return this.implVehicleService.deleteVehicle(id);
     }
-    @PostMapping("/free")
-    public List<Vehicle> freeVehicles(@RequestBody Object params){
-        return this.implVehicleService.freeVehicles(params);
+    @GetMapping("/available")
+    public List<Vehicle> getAvailableVehicles(
+            @RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+            @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
+        return this.implVehicleService.getAvailableVehicles(startDate, endDate);
     }
 
 }

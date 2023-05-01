@@ -8,6 +8,7 @@ import lombok.val;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -39,7 +40,7 @@ public class ImplVehicleService implements IVehicleService{
         this.vehicleRepository.saveAndFlush(vehicle);
     }
 
-    public List<Vehicle> freeVehicles(Object reserve){
-        return this.vehicleRepository.freeVehicles(reserve);
+    public List<Vehicle> getAvailableVehicles(Date startDate, Date endDate){
+        return vehicleRepository.findAvailableVehicles(startDate, endDate);
     }
 }
