@@ -27,13 +27,15 @@ public class VehicleController {
     }
 
     @PostMapping("")
-    public void updateTask(@RequestBody Vehicle vehicle) throws DefaultException {
+    public List<Vehicle> updateTask(@RequestBody Vehicle vehicle) throws DefaultException {
         this.VehicleService.updateVehicle(vehicle);
+        return findAllVehicle();
     }
 
     @DeleteMapping("/{id}")
-    public boolean deleteById(@PathVariable("id") Long id) throws DefaultException{
-        return this.VehicleService.deleteVehicle(id);
+    public List<Vehicle> deleteById(@PathVariable("id") Long id) throws DefaultException{
+        this.VehicleService.deleteVehicle(id);
+        return findAllVehicle();
     }
     @GetMapping("/available")
     public List<Vehicle> getAvailableVehicles(

@@ -1,6 +1,7 @@
 package com.kings.rentacarrest.core.services;
 
 import com.kings.rentacarrest.core.exception.DefaultException;
+import com.kings.rentacarrest.model.dto.BookingDTO;
 import com.kings.rentacarrest.persistence.entity.Booking;
 
 import java.util.List;
@@ -14,11 +15,11 @@ public interface IBookingService {
 
     /**
      *
-     * @param id tipo Long referencian al valor id de la entidad a localizar.
-     * @return devuelve una entidad booking.
+     * @param id tipo Long referencian al valor id de un usuario.
+     * @return devuelve una lista de entidades booking.
      * @throws DefaultException "entity not found" si no encuentra una entidad booking en la bd con ese id.
      */
-    public Booking findBookingById(final Long id) throws DefaultException;
+    public List<Booking> findAllByUser(final Long id);
 
     /**
      *
@@ -30,7 +31,13 @@ public interface IBookingService {
 
     /**
      *
-     * @param booking recibe una Entidad booking para crear o actualizar
+     * @param booking recibe un DTO de booking, lo transforma en entidad para enviar al repositorio, este método sirve tanto para para crear como actualizar
      */
-    public void updateBooking(Booking booking) throws DefaultException;
+    public void updateBooking(BookingDTO booking) throws DefaultException;
+
+    /**
+     *
+     * @param id recibe un id y localiza la reserva
+     */
+    void findBookingById(Long id);
 }

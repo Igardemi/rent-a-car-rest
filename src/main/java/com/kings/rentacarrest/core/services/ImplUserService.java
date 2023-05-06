@@ -1,7 +1,7 @@
 package com.kings.rentacarrest.core.services;
 
 import com.kings.rentacarrest.core.exception.DefaultException;
-import com.kings.rentacarrest.model.dto.UserLogIn;
+import com.kings.rentacarrest.model.dto.UserLogInDTO;
 import com.kings.rentacarrest.persistence.entity.User;
 import com.kings.rentacarrest.persistence.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -40,7 +40,7 @@ public class ImplUserService implements IUserService {
         this.userRepository.saveAndFlush(user);
     }
 
-    public User authUser(UserLogIn user) throws DefaultException {
+    public User authUser(UserLogInDTO user) throws DefaultException {
 
         User userCurrent =  this.userRepository.findByEmail(user.getEmail());
 

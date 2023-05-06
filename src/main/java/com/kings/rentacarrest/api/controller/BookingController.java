@@ -2,9 +2,9 @@ package com.kings.rentacarrest.api.controller;
 
 import com.kings.rentacarrest.core.exception.DefaultException;
 import com.kings.rentacarrest.core.services.ImplBookingService;
-import com.kings.rentacarrest.core.services.ImplVehicleService;
+import com.kings.rentacarrest.model.dto.BookingDTO;
 import com.kings.rentacarrest.persistence.entity.Booking;
-import com.kings.rentacarrest.persistence.entity.Vehicle;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,9 +17,14 @@ public class BookingController {
 
     private final ImplBookingService bookingService;
 
-    @GetMapping
-    public List<Booking> findAllVehicle() {
-        return this.bookingService.findAllBooking();
+    /**
+     *
+     * @param id recibe el id de un usuario
+     * @return  una lista con todas las reservas reaizadas por el.
+     */
+    @GetMapping("/{id}")
+    public List<Booking> findAllBookingByUserId(@PathVariable("id") Long id) {
+        return this.bookingService.findAllByUser(id);
     }
 
     /**
@@ -28,7 +33,9 @@ public class BookingController {
      * @throws DefaultException
      */
     @PostMapping("")
-    public void updateTask(@RequestBody Booking booking) throws DefaultException {
+    public void updateBooking(@RequestBody BookingDTO booking) throws DefaultException {
         this.bookingService.updateBooking(booking);
     }
+
+
 }

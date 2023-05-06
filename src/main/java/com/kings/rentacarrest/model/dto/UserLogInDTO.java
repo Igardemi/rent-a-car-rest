@@ -3,7 +3,7 @@ package com.kings.rentacarrest.model.dto;
 import lombok.Data;
 
 @Data
-public class UserLogIn {
+public class UserLogInDTO {
     private String email;
     private String password;
 }
